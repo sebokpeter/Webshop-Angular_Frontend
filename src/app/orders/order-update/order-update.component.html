@@ -1,0 +1,16 @@
+<button routerLink="/orders">Back</button>
+<form [formGroup]="orderForm" (ngSubmit)="save()">
+    <label>
+       Order Date: <input type="datetime-local" formControlName="orderDate">
+    </label>
+    <label>
+        Delivetry Date: <input type="datetime-local" formControlName="deliveryDate">
+    </label>
+    <label>
+    Customer: 
+        <select (change)='selectedChanged($event)' formControlName='customer'>
+                <option *ngFor='let cust of customers' [value]=cust.id>{{cust.firstName}}</option>
+        </select>
+    </label>
+    <button type="submit">Save</button>
+</form>

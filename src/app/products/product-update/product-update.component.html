@@ -1,0 +1,19 @@
+<button routerLink="/products">Back</button>
+<form [formGroup]="productForm" (ngSubmit)="save()">
+    <label>
+        Name: <input type="text" formControlName="name">
+    </label>
+    <label>
+        Brand: <input type="text" formControlName="brand">
+    </label>
+    <label>
+        Percentage: <input type="number" formControlName="percentage">
+    </label>
+    <label>
+        Price: <input type="number" formControlName="price">
+    </label>
+    <label>
+        Stock: <input type="number" formControlName="stock">
+    </label>
+    <button type="submit">Save</button>
+</form>

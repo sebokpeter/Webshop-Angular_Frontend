@@ -1,0 +1,15 @@
+<h1>Product details</h1>
+<button routerLink="/products">Back</button>
+<div *ngIf="currentBeer">
+  <pre>
+    Id: {{currentBeer.id}}
+    Name: {{currentBeer.name}}
+    Brand: {{currentBeer.brand}}
+    Percentage: {{currentBeer.percentage}}%
+    Price: {{currentBeer.price}} dkk
+    Stock: {{currentBeer.stock}} pcs
+  </pre>
+</div>
+<div *ngIf="!currentBeer">
+  <h2>Product not found!</h2>
+</div>

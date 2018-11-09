@@ -1,0 +1,19 @@
+<h1>Order details</h1>
+<button routerLink="/orders">Back</button>
+<div *ngIf="currentOrder">
+  <pre>
+    Id: {{currentOrder.id}}
+    Order Date: {{currentOrder.orderDate}}
+    Delivery Date: {{currentOrder.deliveryDate}}
+    Customer: 
+              Id: {{currentOrder.customer.id}}
+              First Name: {{currentOrder.customer.firstName}}
+              Last Name: {{currentOrder.customer.lastName}}
+              Address: {{currentOrder.customer.address}}
+              Email: {{currentOrder.customer.email}}
+              Phone number: {{currentOrder.customer.phoneNumber}}
+  </pre>
+</div>
+<div *ngIf="!currentOrder">
+  <h2>Order not found!</h2>
+</div>

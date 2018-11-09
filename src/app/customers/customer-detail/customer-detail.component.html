@@ -1,0 +1,15 @@
+<h1>Customer details</h1>
+<button routerLink="/customers">Back</button>
+<div *ngIf="currentCustomer">
+  <pre>
+    Id: {{currentCustomer.id}}
+    First Name: {{currentCustomer.firstName}}
+    Last Name: {{currentCustomer.lastName}}
+    Address: {{currentCustomer.address}}
+    Email: {{currentCustomer.email}}
+    Phone number: {{currentCustomer.phoneNumber}}
+  </pre>
+</div>
+<div *ngIf="!currentCustomer">
+  <h2>Customer not found!</h2>
+</div>

@@ -1,0 +1,10 @@
+<button routerLink="/order-add">Add New Order</button>
+<Ul *ngIf="orders">
+  <li *ngFor="let ord of orders"><a routerLink="/orders/{{ord.id}}">
+    Order id:  {{ord.id}} 
+   </a>
+    <button routerLink="/order-update//{{ord.id}}">Update</button>
+    <button (click)="delete(ord.id)">Delete</button>
+  </li>
+</Ul>
+<h4 *ngIf="!orders">Loading...</h4>
