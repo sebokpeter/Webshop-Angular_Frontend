@@ -1,4 +1,4 @@
-<button routerLink="/customers">Back</button>
+<!--button routerLink="/customers">Back</button>
 <form [formGroup]="customerForm" (ngSubmit)="save()">
     <label>
        First Name: <input type="text" formControlName="firstName">
@@ -16,4 +16,39 @@
         Phone Number: <input type="text" formControlName="phoneNumber">
     </label>
     <button type="submit">Save</button>
-</form>
+</form-->
+<div class="example-container" fxLayout="column">
+    <div fxLayout="row" >
+        <button mat-button class="btn-back" routerLink="/customers">Back</button> 
+    </div>
+    <form [formGroup]="customerForm" (ngSubmit)="save()">
+        <div fxLayout="row" fxLayoutAlign="center">
+            <mat-form-field >
+                <input matInput formControlName="firstName" placeholder="First Name">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field>
+                    <input matInput formControlName="lastName" placeholder="Last Name">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">    
+            <mat-form-field>
+                    <input type="text" formControlName="address" matInput placeholder="Address">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field>
+                    <input type="text" formControlName="email" matInput placeholder="Email">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field>
+                    <input type="tel" formControlName="phoneNumber" matInput placeholder="Phone Number">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button mat-button class="btn-save" type="submit">Save</button>
+        </div>
+    </form>
+</div>

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthenticationService } from '../shared/services/authentication-service/authentication.service';
 
 @Injectable({
@@ -12,7 +11,6 @@ export class AuthGuard implements CanActivate {
               private authService: AuthenticationService) {}
 
   canActivate(){
-    debugger;
       if(this.authService.getToken()) {
         return true;
       }

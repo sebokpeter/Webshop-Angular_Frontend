@@ -1,4 +1,4 @@
-<button routerLink="/products">Back</button>
+<!--button routerLink="/products">Back</button>
 <form [formGroup]="productForm" (ngSubmit)="save()">
     <label>
         Name: <input type="text" formControlName="name">
@@ -16,4 +16,39 @@
         Stock: <input type="number" formControlName="stock">
     </label>
     <button type="submit">Save</button>
-</form>
+</form-->
+<div class="example-container" fxLayout="column">
+    <div fxLayout="row" >
+        <button mat-button class="btn-back" routerLink="/products">Back</button> 
+    </div>
+    <form [formGroup]="productForm" (ngSubmit)="save()">
+        <div fxLayout="row" fxLayoutAlign="center">
+            <mat-form-field >
+                <input matInput formControlName="name" placeholder="Name">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field>
+                    <input matInput formControlName="brand" placeholder="Brand">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">    
+            <mat-form-field>
+                    <input type="number" formControlName="percentage" matInput placeholder="Percentage">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field>
+                    <input type="number" formControlName="price" matInput placeholder="Price">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field>
+                    <input type="number" formControlName="stock" matInput placeholder="Stock">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button mat-button class="btn-save" type="submit">Save</button>
+        </div>
+    </form>
+</div>

@@ -35,7 +35,6 @@ export class AuthenticationService {
   }
 
   getUsername(): string {
-    debugger;
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return currentUser && currentUser.username;
   }

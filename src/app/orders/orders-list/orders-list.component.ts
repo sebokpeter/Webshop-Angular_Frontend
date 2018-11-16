@@ -26,6 +26,9 @@ export class OrdersListComponent implements OnInit {
   refresh() {
     this.orderService.getOrders().subscribe(ordList => {
       this.orders = ordList;
+      ordList.forEach(element => {
+        console.log(element);
+      });      
     });
   }
 

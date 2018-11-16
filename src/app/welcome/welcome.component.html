@@ -1,6 +1,16 @@
-<h1>
-   {{ title }}!
-</h1>
-<h3>We have the best beers!</h3>
-<h3 *ngIf='username'>Welcome, {{username}}!</h3>
-<h3 *ngIf='!username'>Welcome, Guest!</h3>
+<div id="welcome" class="container" fxLayout="column" fxFill>
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <h1>
+            {{ title }}!
+        </h1>
+    </div>
+    <div id="adv">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <h3>We have the best beers!</h3>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <h3 *ngIf='username'>Welcome, {{username}}!</h3>
+            <h3 *ngIf='!username'>Welcome, Guest!</h3>
+        </div>   
+    </div>
+</div>

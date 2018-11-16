@@ -1,10 +1,29 @@
-<button routerLink="/product-add">Add New Beer</button>
-<Ul *ngIf="products">
-  <li *ngFor="let beer of products"><a routerLink="/products/{{beer.id}}">
-    {{beer.id}}, {{beer.name}}  
-    </a>
-      <button routerLink="/product-update//{{beer.id}}">Update</button>
-      <button (click)="delete(beer.id)">Delete</button>
-  </li>
-</Ul>
-<h4 *ngIf="!products">Loading...</h4>
+<div class="container" fxLayout="column" fxFill fxLayoutGap="10px">
+  <div fxLayout="row">
+     <button mat-mini-fab color="primary" routerLink="/product-add">+</button>
+  </div>
+  <h4 *ngIf="!products" fxFill fxLayoutAlign="center center"><mat-spinner></mat-spinner></h4>
+  <div fxLayout="row wrap"  fxLayoutGap="5px" fxlayoutAlign="start start" *ngIf="products">
+    <div fxFlex="33"  [fxFlex.md]="'50'" [fxFlex.sm]="'100'" *ngFor="let prod of products">
+      <mat-card class="info-card">
+        <mat-card-header>
+         <p><mat-card-title>ID: {{prod.id}}</mat-card-title></p>
+        </mat-card-header>
+        <mat-card-content>
+          <div>
+            <pre>
+              Name: {{prod.name}}
+              Brand: {{prod.brand}}
+            </pre>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <span fxFlex></span>
+          <button routerLink="/products/{{prod.id}}" mat-button color="primary">Details</button>
+          <button routerLink="/product-update/{{prod.id}}" mat-button color="warm">Update</button>
+          <button (click)="delete(prod.id)" mat-button color="accent">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<h1>Order details</h1>
+<!--h1>Order details</h1>
 <button routerLink="/orders">Back</button>
 <div *ngIf="currentOrder">
   <pre>
@@ -16,4 +16,41 @@
 </div>
 <div *ngIf="!currentOrder">
   <h2>Order not found!</h2>
-</div>
+</div-->
+<div class="container">
+    <div fxLayout="row"><button routerLink="/orders" mat-button color="primary">Back</button></div>
+    <h4 *ngIf="!currentOrder" fxFill fxLayoutAlign="center center">
+        <mat-spinner></mat-spinner>
+    </h4>
+    <div *ngIf="currentOrder">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Order details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div>
+              <pre>
+                  Id: {{currentOrder.id}}
+                  Order Date: {{currentOrder.orderDate}}
+                  Delivery Date: {{currentOrder.deliveryDate}}
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Customer details
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <pre>
+                        Id: {{currentOrder.customer.id}}
+                        First Name: {{currentOrder.customer.firstName}}
+                        Last Name: {{currentOrder.customer.lastName}}
+                        Address: {{currentOrder.customer.address}}
+                        Email: {{currentOrder.customer.email}}
+                        Phone number: {{currentOrder.customer.phoneNumber}}
+                    </pre>
+                  </mat-expansion-panel>
+                </pre>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

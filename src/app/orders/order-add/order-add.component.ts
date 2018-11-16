@@ -4,11 +4,29 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Customer } from 'src/app/shared/models/customer';
 import { CustomerService } from 'src/app/shared/services/customer-service/customer.service';
+import { MAT_DATE_FORMATS } from '@angular/material';
+import { Order } from 'src/app/shared/models/order';
+
+export const DD_MM_YYYY_Format = {
+  parse: {
+      dateInput: 'LL',
+  },
+  display: {
+      dateInput: 'DD/MM/YYYY',
+      monthYearLabel: 'MMM YYYY',
+      dateA11yLabel: 'LL',
+      monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
+
 
 @Component({
   selector: 'app-order-add',
   templateUrl: './order-add.component.html',
-  styleUrls: ['./order-add.component.css']
+  styleUrls: ['./order-add.component.css'],
+  providers: [
+    {provide: MAT_DATE_FORMATS, useValue: DD_MM_YYYY_Format}
+  ]
 })
 export class OrderAddComponent implements OnInit {
   
@@ -34,7 +52,12 @@ export class OrderAddComponent implements OnInit {
   
   save() {
     debugger;
-    const ord = this.orderForm.value;
+    const orderDateObj = this.orderForm.get('orderDate').value;
+    const deliveryDateObj = this.orderForm.get('deliveryDate').value;
+    const ord = new Order();
+    ord.deliveryDate = deliveryDateObj;
+    ord.orderDate = orderDateObj;
+    
     const cust = new Customer();
     cust.id = this.custId;
     ord.customer = cust;

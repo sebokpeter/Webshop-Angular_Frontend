@@ -1,0 +1,16 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.btn-save {
+  background-color: lightgreen;
+}
+
+.btn-back {
+  background-color: #ff566a;
+}

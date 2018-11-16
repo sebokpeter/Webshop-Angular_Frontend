@@ -19,7 +19,12 @@ import { OrderAddComponent } from './orders/order-add/order-add.component';
 import { OrderDetailComponent } from './orders/order-detail/order-detail.component';
 import { OrderUpdateComponent } from './orders/order-update/order-update.component';
 import { LoginComponent } from 'src/app/login/login.component';
- 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+import { MatButtonModule, MatCheckboxModule, MatCardModule, MatProgressSpinnerModule, MatFormFieldModule, MatInputModule, MatExpansionModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material';
+import { MatMomentDateModule} from '@angular/material-moment-adapter'
+import { FlexLayoutModule  } from "@angular/flex-layout";
+import { from } from 'rxjs';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,9 +49,22 @@ import { LoginComponent } from 'src/app/login/login.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatExpansionModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

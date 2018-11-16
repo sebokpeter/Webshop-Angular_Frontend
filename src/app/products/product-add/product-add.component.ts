@@ -26,6 +26,7 @@ export class ProductAddComponent implements OnInit {
   }
 
   save() {
+    debugger;
     const product = this.productForm.value;
 
     this.beerService.addBeer(product).subscribe(() => {

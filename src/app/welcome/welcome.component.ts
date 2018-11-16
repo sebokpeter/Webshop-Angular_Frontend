@@ -12,7 +12,6 @@ export class WelcomeComponent implements OnInit {
   username: string;
 
   constructor(private authenticationService: AuthenticationService) {
-    debugger;
     this.username = authenticationService.getUsername();
    }
 

@@ -1,4 +1,4 @@
-<button routerLink="/orders">Back</button>
+<!--button routerLink="/orders">Back</button>
 <form [formGroup]="orderForm" (ngSubmit)="save()">
     <label>
        Order Date: <input type="datetime-local" formControlName="orderDate">
@@ -13,4 +13,35 @@
         </select>
     </label>
     <button type="submit">Save</button>
-</form>
+</form-->
+<div class="example-container" fxLayout="column">
+    <div fxLayout="row" >
+        <button mat-button class="btn-back" routerLink="/orders">Back</button> 
+    </div>
+    <form [formGroup]="orderForm" (ngSubmit)="save()">
+        <div fxLayout="row" fxLayoutAlign="center">
+            <mat-form-field >
+                <input matInput [matDatepicker]="picker1" placeholder="Choose Order Date" formControlName="orderDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field>
+                    <input matInput [matDatepicker]="picker2" placeholder="Choose Delivery Date" formControlName="deliveryDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">    
+            <mat-form-field>
+                    <mat-select id="customer"  formControlName='customer' required>
+                        <mat-option *ngFor="let cust of customers" [value]="cust.id">{{cust.firstName}}</mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button mat-button class="btn-save" type="submit">Save</button>
+        </div>
+    </form>
+</div>

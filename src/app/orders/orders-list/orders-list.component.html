@@ -1,4 +1,4 @@
-<button routerLink="/order-add">Add New Order</button>
+<!--button routerLink="/order-add">Add New Order</button>
 <Ul *ngIf="orders">
   <li *ngFor="let ord of orders"><a routerLink="/orders/{{ord.id}}">
     Order id:  {{ord.id}} 
@@ -7,4 +7,33 @@
     <button (click)="delete(ord.id)">Delete</button>
   </li>
 </Ul>
-<h4 *ngIf="!orders">Loading...</h4>
+<h4 *ngIf="!orders">Loading...</h4-->
+<div class="container" fxLayout="column" fxFill fxLayoutGap="10px">
+    <div fxLayout="row">
+        <button mat-mini-fab color="primary" routerLink="/order-add">+</button>
+    </div>
+    <h4 *ngIf="!orders" fxFill fxLayoutAlign="center center"><mat-spinner></mat-spinner></h4>
+    <div fxLayout="row wrap"  fxLayoutGap="5px" fxlayoutAlign="start start" *ngIf="orders">
+      <div fxFlex="33"  [fxFlex.md]="'50'" [fxFlex.sm]="'100'" *ngFor="let ord of orders">
+        <mat-card class="info-card">
+          <mat-card-header>
+            <p><mat-card-title>ID: {{ord.id}}</mat-card-title></p>
+          </mat-card-header>
+          <mat-card-content>
+            <div>
+              <pre>
+                Customer ID: {{ord.customer.id}}
+                Customer name: {{ord.customer.firstName}}
+              </pre>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <span fxFlex></span>
+            <button routerLink="/orders/{{ord.id}}" mat-button color="primary">Details</button>
+            <button routerLink="/order-update/{{ord.id}}" mat-button color="warm">Update</button>
+            <button (click)="delete(ord.id)" mat-button color="accent">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
